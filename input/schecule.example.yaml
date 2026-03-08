@@ -1,0 +1,17 @@
+defaults:
+  calendar_name: "登録先カレンダー名"
+  title: "通常イベント名"
+  timezone: "Asia/Tokyo"
+  start_time: "13:00"
+  end_time: "17:00"
+  location: "会場名"
+
+events:
+  - date: "2026-04-04"
+  - date: "2026-04-19"
+  - date: "2026-06-28"
+    location: "別会場"
+  - date: "2026-07-25"
+    all_day: true
+    title: "特別イベント名"
+    location: "終日イベント会場"
