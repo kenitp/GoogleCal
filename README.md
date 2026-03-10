@@ -51,6 +51,18 @@ uv run python main.py --dry-run
 uv run python main.py
 ```
 
+確認プロンプトを省略する場合:
+
+```bash
+uv run python main.py --yes
+```
+
+カレンダー ID を直接指定する場合:
+
+```bash
+uv run python main.py --calendar-id "your-calendar-id@group.calendar.google.com"
+```
+
 初回実行時はブラウザで Google ログインと権限許可が求められます。認証完了後、`token.json` が自動生成されます。
 
 ## YAML 形式
@@ -97,4 +109,7 @@ events:
 ## 補足
 
 - 同じ件名、場所、開始、終了の予定が既に存在する場合は登録をスキップします。
+- 実登録時は、登録先カレンダー名と ID を表示して確認を求めます。`--yes` を付けると確認を省略できます。
+- 各予定には `24時間前のメール通知` と `10分前のポップアップ通知` を設定します。
+- ある予定の登録でエラーが出ても、残りの予定の処理は継続します。
 - `credentials.json`、`token.json`、`input/schecule.yaml` は `.gitignore` に含めています。
