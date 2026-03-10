@@ -43,6 +43,14 @@ def find_calendar_id(service: Resource, calendar_name: str) -> str:
     raise ValueError(f"カレンダー '{calendar_name}' が見つかりません。")
 
 
+def get_calendar_summary(service: Resource, calendar_id: str) -> str:
+    calendar = service.calendars().get(calendarId=calendar_id).execute()
+    summary = calendar.get("summary")
+    if not summary:
+        raise ValueError(f"カレンダー '{calendar_id}' の名前を取得できません。")
+    return str(summary)
+
+
 def event_exists(service: Resource, calendar_id: str, payload: dict[str, Any]) -> bool:
     time_min, time_max = _event_range(payload)
     response = (

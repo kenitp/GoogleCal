@@ -69,6 +69,13 @@ def load_schedule(schedule_path: Path) -> ScheduleInput:
 def build_event_body(event: EventInput) -> dict[str, Any]:
     payload: dict[str, Any] = {
         "summary": event.title,
+        "reminders": {
+            "useDefault": False,
+            "overrides": [
+                {"method": "email", "minutes": 24 * 60},
+                {"method": "popup", "minutes": 10},
+            ],
+        },
     }
 
     if event.location:
